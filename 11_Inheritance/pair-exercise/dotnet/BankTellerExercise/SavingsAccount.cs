@@ -19,7 +19,7 @@ namespace BankTellerExercise
             {
                 amountToWithdraw += serviceFee;
             }
-            return base.Withdraw(amountToWithdraw);
+            return amountToWithdraw;
         }
     }
 }

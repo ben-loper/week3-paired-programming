@@ -24,13 +24,17 @@ namespace BankTellerExercise
             return Balance -= amountToWithdraw;
         }
 
-        public void Transer(BankAccount destinationAccount, decimal transferAmount)
+        public void Transfer(BankAccount destinationAccount, decimal transferAmount)
         {
-            decimal transfer = transferAmount;
+
+            decimal transfer = Withdraw(transferAmount);
 
             if(this is SavingsAccount && Balance < 150)
             {
-                transfer = Balance - Withdraw(transferAmount) - 2;
+                if (transfer != 0)
+                {
+                    transfer = Balance - Withdraw(transferAmount) - 2;
+                }
             }
             else if(this is CheckingAccount && Balance < 0)
             {

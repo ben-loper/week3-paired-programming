@@ -18,7 +18,7 @@ namespace BankTellerExercise
             {
                 amountToWithdraw += overdraftFee;
             }
-            return base.Withdraw(amountToWithdraw);
+            return amountToWithdraw;
         }
     }
 }
