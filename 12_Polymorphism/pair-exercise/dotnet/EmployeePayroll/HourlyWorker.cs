@@ -23,9 +23,8 @@ namespace EmployeePayroll
         {
             double pay = HourlyRate * hoursWorked;
             double overtime = hoursWorked - 40;
-            pay = pay + (HourlyRate * overtime * 0.5);
-
-            return pay;
+            return pay + (HourlyRate * overtime * 0.5);
+            
         }
     }
 }

@@ -26,8 +26,8 @@ namespace BankTellerExercise
                 Console.WriteLine($"Account Number: {item.AccountNumber}");
             }
 
-            checkingAccount.Deposit(23495M);
-            savingsAccount.Deposit(2M);
+            checkingAccount.Deposit(2000M);
+            savingsAccount.Deposit(2000M);
             secondSavingsAcct.Deposit(1500M);
             
             foreach (var item in jayGatsby.Accounts)
@@ -35,8 +35,8 @@ namespace BankTellerExercise
                 Console.WriteLine($"Account Name: {item.AccountNumber} - Account Balance: {item.Balance.ToString("C")}");
             }
 
-            checkingAccount.Withdraw(0.00M);
-            savingsAccount.Withdraw(0M);
+            checkingAccount.Withdraw(500.00M);
+            savingsAccount.Withdraw(1000M);
 
             foreach (var item in jayGatsby.Accounts)
             {

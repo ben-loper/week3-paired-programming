@@ -17,8 +17,9 @@ namespace BankTellerExercise
             else if (Balance - amountToWithdraw < 0.00M)
             {
                 amountToWithdraw += overdraftFee;
-            }
-            return amountToWithdraw;
+            }                      
+
+            return base.Withdraw(amountToWithdraw);
         }
     }
 }

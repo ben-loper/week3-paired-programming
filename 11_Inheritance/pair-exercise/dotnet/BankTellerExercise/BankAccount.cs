@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BankTellerExercise
 {
-    public class BankAccount
+    public abstract class BankAccount
     {
         public string AccountNumber { get; set; }
         public decimal Balance { get; private set; }
@@ -16,7 +16,7 @@ namespace BankTellerExercise
 
         public decimal Deposit(decimal amountToDeposit)
         {
-             return Balance += amountToDeposit;
+            return Balance += amountToDeposit;
         }
 
         public virtual decimal Withdraw(decimal amountToWithdraw)
@@ -26,22 +26,15 @@ namespace BankTellerExercise
 
         public void Transfer(BankAccount destinationAccount, decimal transferAmount)
         {
+            
+            decimal beforeBalance = Balance;
 
-            decimal transfer = Withdraw(transferAmount);
+            Withdraw(transferAmount);
 
-            if(this is SavingsAccount && Balance < 150)
+            if (Balance != beforeBalance)
             {
-                if (transfer != 0)
-                {
-                    transfer = Balance - Withdraw(transferAmount) - 2;
-                }
+                destinationAccount.Deposit(transferAmount);
             }
-            else if(this is CheckingAccount && Balance < 0)
-            {
-                transfer = Balance - Withdraw(transferAmount) - 10;
-            }
-
-            destinationAccount.Deposit(transfer);
         }
                
     }
